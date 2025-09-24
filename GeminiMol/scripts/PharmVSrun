@@ -1,0 +1,69 @@
+# define a profile
+
+echo "SMILES,Label
+<SMILES>,1.0
+<SMILES>,0.5
+<SMILES>,-0.5
+" > "profile.csv"
+
+# Virtual Screening
+export label_col="Label"
+export smiles_column="SMILES" # Specify the column name in the compound_library
+export keep_top=3000
+export probe_cluster="Yes" # Yes or No
+for library in "LifeChemicalAdvanced" "LifeChemicalStock" "specs" "ChemDiv" "MCE";do  # "DTIDB" "LifeChemicalAdvanced" "LifeChemicalStock" "specs" "ChemDiv" "MCE"
+for decoy_set in "profile.csv" ;do # 
+export basename=${decoy_set%%.csv}
+cat<<EOF > ${basename}_${library}_PVS.pbs
+#PBS -N ${basename}_${library}
+#PBS -l nodes=1:ppn=4:gpus=1:p40
+#PBS -S /bin/bash
+#PBS -j oe
+#PBS -l walltime=720:00:00
+#PBS -q sias_pub
+cd \$PBS_O_WORKDIR
+module remove cuda/7/11.0
+source activate GeminiMol
+export PATH=/public/home/wanglin3/software/miniconda3/envs/GeminiMol/bin:\${PATH}
+module load 7/compiler/gnu_8.3.0 cuda/7/11.6
+hostname
+nvidia-smi
+python -u ${geminimol_app}/PharmProfiler.py "${geminimol_lib}/GeminiMol" "${basename}_${library}" "${smiles_column}" "${geminimol_data}/compound_library/${library}.csv" "${decoy_set}:${label_col}" ${keep_top} "${probe_cluster}"
+EOF
+qsub ${basename}_${library}_PVS.pbs
+done
+done
+
+# Target Identification
+export label_col="Label"
+export smiles_column="SMILES" # Specify the column name in the compound_library
+export keep_top=3000
+export probe_cluster="No" # Yes or No
+for library in "DTIDB";do # "DTIDB" "HMDB-Endo"
+for decoy_set in "profile.csv" ;do #
+export basename=${decoy_set%%.csv}
+cat<<EOF > ${basename}_${library}_PVS.pbs
+#PBS -N ${basename}_${library}
+#PBS -l nodes=1:ppn=4:gpus=1
+#PBS -S /bin/bash
+#PBS -j oe
+#PBS -l walltime=720:00:00
+#PBS -q siais_gpu_2
+cd \$PBS_O_WORKDIR
+module remove cuda/7/11.0
+source activate GeminiMol
+export PATH=/public/home/wanglin3/software/miniconda3/envs/GeminiMol/bin:\${PATH}
+module load 7/compiler/gnu_8.3.0 cuda/7/11.6
+hostname
+nvidia-smi
+python -u ${geminimol_app}/PharmProfiler.py "${geminimol_lib}/GeminiMol" "${basename}_${library}" "${smiles_column}" "${geminimol_data}/compound_library/${library}.csv" "${decoy_set}:${label_col}" ${keep_top} "${probe_cluster}"
+EOF
+qsub ${basename}_${library}_PVS.pbs
+done
+done
+
+
+
+
+
+
