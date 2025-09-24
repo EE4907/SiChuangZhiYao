@@ -6,19 +6,33 @@ This repository contains the codebase for an integrated AI-driven pipeline desig
 
 ## Repository Structure
 
+```
 ├── data/					# Directory for raw and processed datasets
+
 │   ├── csv_processed/		# Processed csv files of data
+
 │   ├── data/				# The original data
+
 │   ├── featured_dataset/	# Processed data of transformerCPI
+
 │   └── data_processed/		# Processed txt files of data
+
 ├── GeminiMol/			# Module for molecular similarity and agonist exclusion
+
 ├── TEFDTA/				# Module for deep learning-based affinity prediction
+
 │   └── main_final.py		# Main script for training and prediction
+
 └── transformerCPI/			# Module for transformer-based affinity prediction
+
        ├── GPCR/
+       
        ├── main.py			# Main script for running predictions
+       
        │   └── mol_featurizer.py	# Script for featurizing molecular data
+       
        └── model/				# Directory for saved model weights
+```
 
 
 ## Key Components
