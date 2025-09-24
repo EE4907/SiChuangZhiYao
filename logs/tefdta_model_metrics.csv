@@ -1,2 +1,3 @@
-epoch,train_loss,val_loss,val_accuracy
-0,1.7523424835272239,1.3245649933815002,0.6591984238929648
+version https://git-lfs.github.com/spec/v1
+oid sha256:fdae03610d70e48fa1a3f49b1c9ce6ebbc4e6f37cad4d0e58b0dd82d5ce3c2a3
+size 100
