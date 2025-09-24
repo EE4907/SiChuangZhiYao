@@ -6,6 +6,7 @@ This repository contains the codebase for an integrated AI-driven pipeline desig
 
 ## Repository Structure
 
+```
 ├── data/					# Directory for raw and processed datasets
 
 │   ├── csv_processed/		# Processed csv files of data
@@ -31,6 +32,7 @@ This repository contains the codebase for an integrated AI-driven pipeline desig
        │   └── mol_featurizer.py	# Script for featurizing molecular data
        
        └── model/				# Directory for saved model weights
+```
 
 
 ## Key Components
