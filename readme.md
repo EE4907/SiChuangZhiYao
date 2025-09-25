@@ -139,6 +139,10 @@ autogluon==0.8.1
 tqdm
 ```
 
+### 3. Decompress data
+
+The zip files of the original data and processed data are inside the 'data' folder. Please decompress them into individual folders of data files. 
+
 ## License
 
 The original code written by our team for this project is licensed under the MIT License.
