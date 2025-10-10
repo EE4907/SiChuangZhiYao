@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-@Time:Created on 2019/4/30 14:19
-@author: LiFan Chen
-@Filename: mol_featurizer.py
-@Software: PyCharm
-"""
 import numpy as np
 from rdkit import Chem
 from rdkit.Chem import Descriptors
