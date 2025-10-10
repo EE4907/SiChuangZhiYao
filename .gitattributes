@@ -10,8 +10,8 @@ data/featured_dataset.zip filter=lfs diff=lfs merge=lfs -text
 data filter=lfs diff=lfs merge=lfs -text
 data/data/data_processed.zip filter=lfs diff=lfs merge=lfs -text
 
-*.txt linguist-vendored
-*.csv linguist-vendored
-*.pt linguist-vendored
-*.pth linguist-vendored
-*.zip linguist-vendored
+*.txt linguist-detectable=false
+*.csv linguist-detectable=false
+*.pt linguist-detectable=false
+*.pth linguist-detectable=false
+*.zip linguist-detectable=false
