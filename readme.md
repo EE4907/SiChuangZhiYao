@@ -89,7 +89,7 @@ This module is based on the GeminiMol [3] model, which is used for molecular com
 
 Please refer to the dedicated documentation for the GeminiMol module for detailed usage instructions.
 
-### 4. Others
+### 4. Other Code
 
 Some other programs are used to process data and integrate final results.
 
@@ -98,6 +98,14 @@ Some other programs are used to process data and integrate final results.
 `data\dataset.py`: extracting SMILES as txt from the original data.
 
 `data\filter_csv.py`: filtering invalid or unused smiles from the original data.
+
+### 5. Others
+
+Due to the combination of physics-based and AI-driven approaches, this repository cannot fully reproduce all results. The additional methods involved include:
+
+- Protein structure prediction: AlphaFold, molecular dynamics simulations
+- Binding site prediction: physics-based (Maestro) and AI-based (internal unpublished method)
+- Molecular Docking
 
 ## Setup and Installation
 
