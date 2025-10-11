@@ -2,10 +2,7 @@
 
 This repository contains the codebase for an integrated AI-driven pipeline designed for the discovery of novel HCAR1 (Hydroxycarboxylic Acid Receptor 1) antagonists. The project combines multiple state-of-the-art computational methods, including deep learning-based affinity prediction and molecular docking, to efficiently screen large compound libraries.
 
-
-![1760096063911](image/readme/1760096063911.png)
-
-## Repository Structure
+![1760149814563](image/readme/1760149814563.png)Repository Structure
 
 ```
 ├── data/					# Directory for raw and processed datasets
@@ -27,11 +24,11 @@ This repository contains the codebase for an integrated AI-driven pipeline desig
 └── transformerCPI/			# Module for transformer-based affinity prediction
 
        ├── GPCR/
-     
+   
        ├── main.py			# Main script for running predictions
-     
+   
        │   └── mol_featurizer.py	# Script for featurizing molecular data
-     
+   
        └── model/				# Directory for saved model weights
 ```
 
